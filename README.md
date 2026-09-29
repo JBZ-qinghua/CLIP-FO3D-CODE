@@ -1,0 +1,2 @@
+# CLIP-FO3D-CODE
+Code of ICCV paper CLIP-FO3D
