@@ -1,0 +1,1 @@
+weights/clip_fo3d_scannet.pth filter=lfs diff=lfs merge=lfs -text

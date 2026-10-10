@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clip-fo3d"
+version = "1.0.0"
+description = "CLIP-FO3D training and inference on ScanNet"
+requires-python = ">=3.10"
+dependencies = ["numpy", "Pillow", "PyYAML", "scikit-image", "scipy", "torch", "torchvision", "tqdm"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

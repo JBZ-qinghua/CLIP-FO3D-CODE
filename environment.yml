@@ -1,0 +1,38 @@
+name: clip-fo3d
+channels:
+  - nvidia/label/cuda-11.8.0
+  - conda-forge
+dependencies:
+  - python=3.10
+  - cuda-nvcc=11.8
+  - cuda-cudart-dev=11.8
+  - cuda-cccl=11.8.89
+  - cuda-version=11.8
+  - libcublas-dev=11.11.3.6
+  - libcurand-dev=10.3.0.86
+  - libcusparse-dev=11.7.5.86
+  - libcusolver-dev=11.4.1.48
+  - numpy=1.26
+  - scipy
+  - pyyaml
+  - pillow
+  - tqdm
+  - pytest
+  - ninja
+  - libopenblas=0.3.31
+  - openblas-devel=0.3.31
+  # OpenAI CLIP's pinned setup.py imports pkg_resources, removed in setuptools 81+.
+  - setuptools>=68,<81
+  - wheel
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.0.1+cu118
+      - torchvision==0.15.2+cu118
+      - camtools==0.1.7
+      - ftfy==6.3.1
+      - imageio==2.37.2
+      - open3d==0.19.0
+      - opencv-python==4.11.0.86
+      - regex==2026.1.15
+      - scikit-image==0.25.2

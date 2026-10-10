@@ -1,0 +1,40 @@
+device: cuda:0
+
+paths:
+  point_root: data/scannet
+  clip_checkpoint: weights/ViT-B-16.pt
+
+model:
+  architecture: Mink16UNet34C
+  in_channels: 3
+  out_channels: 512
+  base_channels: 32
+  channels: [32, 64, 128, 256, 256, 128, 96, 96]
+  layers: [2, 3, 4, 6, 2, 2, 2, 2]
+  voxel_size: 0.02
+
+evaluation:
+  split: val
+  precision: float32
+  prompt_ensemble: true
+  ignore_index: -1
+  class_names:
+    - wall
+    - floor
+    - cabinet
+    - bed
+    - chair
+    - sofa
+    - table
+    - door
+    - window
+    - bookshelf
+    - picture
+    - counter
+    - desk
+    - curtain
+    - refrigerator
+    - shower curtain
+    - toilet
+    - sink
+    - bathtub

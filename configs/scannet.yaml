@@ -1,0 +1,75 @@
+seed: 42
+device: cuda:0
+
+paths:
+  point_root: data/scannet
+  image_root: data/scannet10/images
+  clip_checkpoint: weights/ViT-B-16.pt
+  target_root: targets/scannet
+  output_root: outputs/scannet
+
+dense_clip:
+  scales: [1.0, 0.5, 0.25]
+  stride_ratio: 0.5
+  n_segments: 50
+  compactness: 10.0
+  slic_sigma: 1.0
+  crop_batch_size: 1024
+  view_batch_size: 16
+  precision: bfloat16
+  slic_workers: 32
+  max_views: null
+
+projection:
+  feature_dtype: float16
+  normalize_targets: true
+
+model:
+  architecture: Mink16UNet34C
+  in_channels: 3
+  out_channels: 512
+  base_channels: 32
+  channels: [32, 64, 128, 256, 256, 128, 96, 96]
+  layers: [2, 3, 4, 6, 2, 2, 2, 2]
+  voxel_size: 0.02
+
+train:
+  split: train
+  augment: true
+  precision: float32
+  batch_size: 4
+  workers: 4
+  steps: 80000
+  lr: 0.8
+  momentum: 0.9
+  weight_decay: 0.0001
+  lr_gamma: 0.99
+  lr_step: 1000
+  save_every: 1000
+  log_every: 20
+
+evaluation:
+  split: val
+  precision: float32
+  prompt_ensemble: true
+  ignore_index: -1
+  class_names:
+    - wall
+    - floor
+    - cabinet
+    - bed
+    - chair
+    - sofa
+    - table
+    - door
+    - window
+    - bookshelf
+    - picture
+    - counter
+    - desk
+    - curtain
+    - refrigerator
+    - shower curtain
+    - toilet
+    - sink
+    - bathtub

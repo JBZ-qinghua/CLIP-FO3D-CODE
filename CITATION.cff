@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the CLIP-FO3D paper."
+title: "CLIP-FO3D"
+type: software
+version: 1.0.0
+authors:
+  - name: "CLIP-FO3D project contributors"
+repository-code: "https://github.com/<YOUR_ORGANIZATION>/CLIP-FO3D"
